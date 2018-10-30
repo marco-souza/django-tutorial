@@ -38,6 +38,7 @@ setup(
     ],  # Optional
     extras_require={  # Optional
         'dev': [
+            "django",
             # linters
             'flake8',
             'pylint',
