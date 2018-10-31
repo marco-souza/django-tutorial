@@ -114,3 +114,32 @@ Também é necessário adicionar essa nova url para o `my_project/urls.py` do pr
 ```
 
 A documentação recomenda sempre usar `include`, exceto no `admin.site.urls`.
+
+## Part 2
+
+Agora vamos trabalhar com o banco de dados. Para isso é preciso entender como funciona o `settings.py`.
+
+O arquivo de configuração basicamente armazena variáveis que serão lidas pelo django. No que diz respeito aos dados, esse arquivo permite informar configurações para conexão com `MySQL`, `PostgreSQL`, `SQLite` e `Oracle`. A opção default é `SQLite`.
+
+Além disso esse arquivo tem uma listagem de apps a serem incluidos ao projeto:
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+Cada app tem suas definições de banco de dados, então quando rodarmos o comando para criação do banco, o djago pega essa lista e faz todas as migrações de banco desses apps.
+
+Para executar a migração rodamos o comando:
+
+```sh
+python manage.py migrate
+```
+
+Veremos um log de cada alteração feita no banco. Após finalizar, podemos acessar um cliente para nosso bd e ver a estrutura criada pelo comando.
