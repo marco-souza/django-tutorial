@@ -1,0 +1,5 @@
+main:
+  tasks:
+    - run
+run:
+  - ./manage.py runserver
